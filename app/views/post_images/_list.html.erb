@@ -1,14 +1,21 @@
-<% post_images.each do |post_image| %>
-  <div>
-    <%= link_to post_image_path(post_image.id) do %>
-      <%= image_tag post_image.image, width: 300, height: 180 %>
-    <% end %>
-    <p>投稿ユーザー画像：<%= image_tag post_image.user.profile_image, width: 50, height: 50 %></p>
-    <p>ショップ名：<%= post_image.shop_name %></p>
-    <p>説明：<%= post_image.caption %></p>
-    <p>ユーザーネーム：<%= post_image.user.name %></p>
-    <p><%= link_to "#{post_image.post_comments.count} コメント", post_image_path(post_image.id) %></p>
-  </div>
-<% end %>
+<div class="post">
+  <% post_images.each do |post_image| %>
+    <section class="card">
+      <img class="card-img">
+      <%= link_to post_image_path(post_image.id) do %>
+        <%= image_tag post_image.image, width: 300, height: 200 %>
+      <% end %>
+      <div class="card-content">
+        <p class="card-title">
+          <%= image_tag post_image.user.profile_image, width: 50, height: 50 %><%= post_image.user.name %>
+        </p>
+        <p class="card-text">
+          <p>ショップ名：<%= post_image.shop_name %></p>
+          <p>説明：<%= post_image.caption %></p>
+        </p>
+      </div>
+    </section>
+  <% end %>
+</div>
 
 <%= paginate post_images %>
