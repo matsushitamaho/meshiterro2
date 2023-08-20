@@ -1,17 +1,17 @@
 <div class="post">
   <% post_images.each do |post_image| %>
     <section class="card">
+      <p class="card-title">
+          <%= image_tag post_image.user.profile_image, width: 50, height: 50, style: "border-radius: 50%;" %><%= post_image.user.name %>
+        </p>
       <img class="card-img">
       <%= link_to post_image_path(post_image.id) do %>
         <%= image_tag post_image.image, width: 300, height: 200 %>
       <% end %>
       <div class="card-content">
-        <p class="card-title">
-          <%= image_tag post_image.user.profile_image, width: 50, height: 50 %><%= post_image.user.name %>
-        </p>
         <p class="card-text">
-          <p>ショップ名：<%= post_image.shop_name %></p>
-          <p>説明：<%= post_image.caption %></p>
+          <p style="font-size:25px;"><%= post_image.shop_name %></p>
+          <p><%= post_image.caption %></p>
         </p>
       </div>
     </section>

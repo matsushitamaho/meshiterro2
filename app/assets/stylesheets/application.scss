@@ -14,25 +14,52 @@
  *= require_self
  */
 header {
-  background-color: #B384FF	;
+  background-color: #FFFFEE	;
   display: flex;
+  height: 100px;
 }
 
 ul {
   display: flex;
   list-style: none;
- 
   margin: 5px;
 }
 
+.nav {
+  margin-left: 35%;
+}
+.nav-item {
+  padding-top: 40px;
+}
+
 body {
-    background-color: #EAD9FF	;
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+.main {
+  background-image: url(1349909.png);
+  background-position: center;
+  background-size: cover;
+  background-position: bottom;
+  height: 1000px;
 }
 
 footer {
-  background-color: #B384FF	;
   display: flex;
   height: 100px;
+  width: 100%;
+  background-color: #fff;
+  background-image: url(742466.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: contain;
+  color: black;
+  text-align: center;
+  padding: 30px 0;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
 }
 
 .post {
@@ -57,12 +84,34 @@ footer {
 }
 .card-title {
   font-size: 20px;
-  margin-bottom: 20px;
-  text-align: center;
+  margin: 10px auto 0 10px;
   color: #333;
 }
 .card-text {
   color: #777;
   font-size: 14px;
   line-height: 1.5;
+}
+
+/* 吹き出し本体 */
+.balloon1{
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #FFFFCC;
+}
+
+/* 三角アイコン */
+.balloon1::before{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 20px;
+  border-right: 15px solid #FFFFCC;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
 }
