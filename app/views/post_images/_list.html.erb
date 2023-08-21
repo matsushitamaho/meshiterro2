@@ -2,7 +2,10 @@
   <% post_images.each do |post_image| %>
     <section class="card">
       <p class="card-title">
-          <%= image_tag post_image.user.profile_image, width: 50, height: 50, style: "border-radius: 50%;" %><%= post_image.user.name %>
+        <%= link_to user_path(current_user.id), style: "color:black;" do %>
+          <%= image_tag post_image.user.profile_image, width: 50, height: 50, style: "border-radius: 50%;" %>
+          <%= post_image.user.name %>
+        <% end %>
         </p>
       <img class="card-img">
       <%= link_to post_image_path(post_image.id) do %>
@@ -16,6 +19,5 @@
       </div>
     </section>
   <% end %>
+  <%= paginate post_images %>
 </div>
-
-<%= paginate post_images %>

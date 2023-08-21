@@ -1,25 +1,16 @@
-<p style="font-size:50px;">画像投稿フォーム</p>
-
-<% if @post_image.errors.any? %>
-  <%= @post_image.errors.count %>件のエラーが発生しました
-  <ul>
-    <% @post_image.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<%= form_with model: @post_image do |f| %>
-
-  <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-
-  <h4>ショップ名</h4>
-  <%= f.text_field :shop_name %>
-
-  <h4>説明</h4>
-  <%= f.text_area :caption %>
-
-  <%= f.submit "投稿" %>
-
-<% end %>
+<div class="form" style="margin-left:200px;">
+  <p style="font-size:50px;">画像投稿フォーム</p>
+  <% if @post_image.errors.any? %>
+    <%= @post_image.errors.count %>件のエラーが発生しました
+    <ul>
+      <% @post_image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= form_with model: @post_image do |f| %>
+    <h4 style="padding-top:50px;">Image:<%= f.file_field :image, accept: "image/*" %></h4>
+    <h4 style="padding-top:50px;">Title:<%= f.text_field :shop_name, style: "background-color:#FFDBC9;" %></h4>
+    <h4 style="padding-top:50px;">Caption:<%= f.text_area :caption, style: "background-color:#FFDBC9;" %><%= f.submit "投稿" %></h4>
+  <% end %>
+</div>

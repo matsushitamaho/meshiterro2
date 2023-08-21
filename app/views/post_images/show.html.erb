@@ -1,7 +1,10 @@
 <div class="post" style="padding-left:150px;padding-top:50px;">
 <section class="card">
   <p class="card-title" style="padding-top: 10px;">
-    <%= image_tag @post_image.user.profile_image, width: 50, height: 50, style: "border-radius: 50%;" %><%= @post_image.user.name %>
+    <%= link_to user_path(current_user.id), style: "color:black;" do %>
+      <%= image_tag @post_image.user.profile_image, width: 50, height: 50, style: "border-radius: 50%;" %>
+      <%= @post_image.user.name %>
+    <% end %>
   </p>
   <img class="card-img">
     <%= link_to post_image_path(@post_image.id) do %>
@@ -26,7 +29,7 @@
         <p><%= @post_image.caption %></p>
         <p><%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
         <% if @post_image.user == current_user %>
-          <%= link_to "削除", post_image_path(@post_image), data: { turbo_method: :delete } %>
+          <%= link_to "削除", post_image_path(@post_image), data: { turbo_method: :delete },style: "color:black;" %>
         <% end %>
       </p>
     </div>
@@ -36,8 +39,10 @@
     <% @post_image.post_comments.each do |post_comment| %>
       <div class="balloon1" style="color:black;">
         <div class="icon">
-        <%= image_tag post_comment.user.profile_image, width: 50, height: 50 , style: "border-radius: 50%;"%>
-        <%= post_comment.user.name %>
+        <%= link_to user_path(current_user.id), style: "color:black;" do %>
+          <%= image_tag post_comment.user.profile_image, width: 50, height: 50, style: "border-radius: 50%;" %>
+          <%= post_comment.user.name %>
+        <% end %>
         <span style="margin-left:30px;">
           <%= post_comment.comment %>
         </span>

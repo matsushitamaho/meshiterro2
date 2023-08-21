@@ -22,8 +22,11 @@
     <header id="header">
       <ul class="nav">
       <% if user_signed_in? %>
-      <li class="nav-item">
-          <%= link_to 'TOP', post_images_path , style: "color:black;"%>
+        <li class="nav-item">
+          <%= link_to 'Top', post_images_path , style: "color:black;"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'About', about_path , style: "color:black;"%>
         </li>
         <li class="nav-item">
           <%= link_to '投稿フォーム', new_post_image_path , style: "color:black;"%>
@@ -46,7 +49,7 @@
     </header>
     
     <div class="main">
-      <%= image_tag '2595254.png' %>
+      <div class="border"></div>
       <%= yield %>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
